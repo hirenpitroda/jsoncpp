@@ -1653,6 +1653,7 @@ bool OurReader::decodeString(Token& token, JSONCPP_STRING& decoded) {
     else if (c == '\\') {
       if (current == end)
         return addError("Empty escape sequence in string", token, current);
+      decoded += "\\";
       Char escape = *current++;
       switch (escape) {
       case '"':
